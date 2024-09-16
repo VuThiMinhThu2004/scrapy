@@ -3,9 +3,12 @@ import scrapy
 class SimpleSpider(scrapy.Spider):
     name = 'simple'
     #start_urls = ['https://www.semanticscholar.org/reader/e63f4b36b4cb675da85656201dd586c29fb6c8cd']
-    #start_urls = ['https://www.scrapebay.com/ebooks']
+    
+    #start_urls = ['https://www.scrapebay.com/ebooks'] #tải được pdf
+    
     #start_urls = ['https://paperswithcode.com/paper/a-simple-framework-for-contrastive-learning']
-    #start_urls = ['https://thuviensach.vn/kho-tang-truyen-co-tich-viet-nam-14229.html']
+    
+    #start_urls = ['https://thuviensach.vn/kho-tang-truyen-co-tich-viet-nam-14229.html'] #tải được pdf
     
     
     def __init__(self, *args, **kwargs):
@@ -67,17 +70,3 @@ class SimpleSpider(scrapy.Spider):
                 }          
                 
 # book scrapy crawl simple -L WARN
-
-'''
-            
-
-for book in response.css('.col'):
-    title = book.css('h5 ::text').get()
-    link = response.urljoin(
-        book.css('a.pdf ::attr(href)').get()
-    )
-    yield {
-        'Title':title,
-        'file_urls':[link]
-    }
-'''
